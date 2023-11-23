@@ -1,4 +1,4 @@
-// continue@nate.com
+// Continue-clock-Dot-Matrix-Clock
 // 20220424 2x20 시계 8x8 40개
 // 20220424 OTA 추가
 // 20220424 초 작은폰트
@@ -321,9 +321,9 @@ static const uint8_t PROGMEM pacman2[F_PMAN2 * W_PMAN2] =  // ghost pursued by a
 //  함수 초기화
 
 // =====================================================================================
-// 소프트웨어 클
+// 소프트웨어 시계
 //MD_Parola P = MD_Parola(HARDWARE_TYPE, DATA_PIN, CLK_PIN, CS_PIN, MAX_DEVICES);
-// 하드웨어 클럭
+// 하드웨어 시계
  MD_Parola P = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 #if USE_DHT
 DHT dht(DHTPIN, DHTTYPE);
@@ -1229,10 +1229,10 @@ void setup(void)
   P.setInvert(false);
   P.setZone(ZONE_LOWER0, 0, 11);  // 영어명언
   P.setZone(ZONE_LOWER1, 12, 12 ); // 시계 초
-  P.setZone(ZONE_LOWER2, 13, 19 ); // 시계 하
+  P.setZone(ZONE_LOWER2, 13, 19 ); // 시계 아래
   P.setZone(ZONE_UPPER0, 20, 31);   // 날짜등
-  P.setZone(ZONE_UPPER1, 32, 32);   // 일자
-  P.setZone(ZONE_UPPER2, 33, 39);   // 시계 상
+  P.setZone(ZONE_UPPER1, 32, 32);   // 일
+  P.setZone(ZONE_UPPER2, 33, 39);   // 시계 위
 
   P.setFont(ZONE_LOWER0, NULL);
   P.setFont(ZONE_UPPER0, NULL);
@@ -1263,7 +1263,7 @@ void setup(void)
   WiFi.disconnect();
   EEPROM.begin(512); //Initialasing EEPROM
 #if DEBUG
-  mprt("wifi Connect..");
+  mprt("wifi Connecting..");
   delay(1000);
 #endif
   Serial.println("Reading EEPROM ssid");
